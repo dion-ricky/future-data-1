@@ -19,5 +19,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 
 ### 15-28 Februari 2021
+- [ ] Buat database dan definisikan relationship ([#5](https://github.com/dion-ricky/future-data/issues/5))
+- [ ] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
 - [ ] Exploratory Data Analysis ([#2](https://github.com/dion-ricky/future-data/issues/2))
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
