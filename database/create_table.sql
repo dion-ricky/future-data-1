@@ -16,8 +16,7 @@ CREATE TABLE "user" (
   customer_zip_code VARCHAR,
   customer_city VARCHAR,
   customer_state VARCHAR,
-  PRIMARY KEY(user_name),
-  UNIQUE (user_name, customer_zip_code, customer_city, customer_state)
+  PRIMARY KEY(user_name)
 );
 
 CREATE TABLE seller (
@@ -80,3 +79,4 @@ CREATE TABLE order_item (
   FOREIGN KEY (seller_id)
   	REFERENCES seller(seller_id)
 );
+
