@@ -12,11 +12,12 @@ CREATE TABLE products (
 );
 
 CREATE TABLE "user" (
+  user_id INTEGER NOT NULL,
   user_name VARCHAR NOT NULL,
   customer_zip_code VARCHAR,
   customer_city VARCHAR,
   customer_state VARCHAR,
-  PRIMARY KEY(user_name)
+  PRIMARY KEY(user_id, user_name)
 );
 
 CREATE TABLE seller (
@@ -29,6 +30,7 @@ CREATE TABLE seller (
 
 CREATE TABLE "order" (
   order_id VARCHAR NOT NULL,
+  user_id INTEGER,
   user_name VARCHAR,
   order_status VARCHAR,
   order_date TIMESTAMP,
@@ -37,8 +39,8 @@ CREATE TABLE "order" (
   delivered_date TIMESTAMP,
   estimated_time_delivery TIMESTAMP,
   PRIMARY KEY(order_id),
-  FOREIGN KEY (user_name)
-  	REFERENCES "user"(user_name)
+  FOREIGN KEY (user_id, user_name)
+  	REFERENCES "user"(user_id, user_name)
 );
 
 CREATE TABLE payment (
