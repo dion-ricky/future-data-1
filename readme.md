@@ -26,3 +26,8 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 ### 01-15 Maret 2021
 - [ ] Exploratory Data Analysis ([#2](https://github.com/dion-ricky/future-data/issues/2))
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+
+### 16-31 Maret 2021
+- [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+- [ ] Membuat dashboard reporting di Tableau ([#7](https://github.com/dion-ricky/future-data/issues/7))
+- [ ] Rancang dan eksekusi ETL datawarehouse ([#8](https://github.com/dion-ricky/future-data/issues/8))
