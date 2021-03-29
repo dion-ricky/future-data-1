@@ -20,18 +20,16 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Setup postgresql ([#4](https://github.com/dion-ricky/future-data/issues/4))
 - [x] Buat database dan definisikan relationship ([#5](https://github.com/dion-ricky/future-data/issues/5))
 - [x] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
-- [ ] Exploratory Data Analysis ([#2](https://github.com/dion-ricky/future-data/issues/2))
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 
 ### 15-28 Februari 2021
 - [x] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
-- [ ] Exploratory Data Analysis ([#2](https://github.com/dion-ricky/future-data/issues/2))
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 
 ### 01-15 Maret 2021
-- [ ] Exploratory Data Analysis ([#2](https://github.com/dion-ricky/future-data/issues/2))
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 
 ### 16-31 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
-- [ ] Rancang dan eksekusi ETL dimension table ([#8](https://github.com/dion-ricky/future-data/issues/8))
+- [x] Rancang dan eksekusi ETL dimension table ([#8](https://github.com/dion-ricky/future-data/issues/8))
+- [ ] Metabase map visualization transformation ([#10](https://github.com/dion-ricky/future-data/issues/10))
