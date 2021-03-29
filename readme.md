@@ -32,4 +32,4 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 ### 16-31 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 - [x] Rancang dan eksekusi ETL dimension table ([#8](https://github.com/dion-ricky/future-data/issues/8))
-- [ ] Metabase map visualization transformation ([#10](https://github.com/dion-ricky/future-data/issues/10))
+- [x] Metabase map visualization transformation ([#10](https://github.com/dion-ricky/future-data/issues/10))
