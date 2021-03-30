@@ -20,7 +20,6 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Setup postgresql ([#4](https://github.com/dion-ricky/future-data/issues/4))
 - [x] Buat database dan definisikan relationship ([#5](https://github.com/dion-ricky/future-data/issues/5))
 - [x] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
-- [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 
 ### 15-28 Februari 2021
 - [x] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
