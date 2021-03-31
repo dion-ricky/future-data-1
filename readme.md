@@ -36,3 +36,4 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 ### 01-15 April 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 - [ ] Membuat tabel utk [BQ](https://github.com/dion-ricky/future-data/issues/3#issuecomment-809860470)
+- [ ] Warehouse analisis pengiriman `TODO`
