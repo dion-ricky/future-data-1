@@ -23,7 +23,6 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 
 ### 15-28 Februari 2021
 - [x] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
-- [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 
 ### 01-15 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
@@ -34,6 +33,9 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Metabase map visualization transformation ([#10](https://github.com/dion-ricky/future-data/issues/10))
 
 ### 01-15 April 2021
-- [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
-- [ ] Membuat tabel utk [BQ](https://github.com/dion-ricky/future-data/issues/3#issuecomment-809860470)
+- [x] Menemukan 3 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+- [x] Membuat warehouse di metabase utk [BQ](https://github.com/dion-ricky/future-data/issues/3#issuecomment-809860470)
 - [ ] Warehouse analisis pengiriman `TODO`
+- [ ] Warehouse from metabase diubah ke ETL `TODO`
+- [x] Setup metabase
+- [x] Konfigurasi GeoJSON Indonesia for visualization
