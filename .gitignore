@@ -1,4 +1,6 @@
 **/.large_datasets
 **/.ipynb_checkpoints
 **/.secrets
-env/
+ecommerce.bak
+ecommerce.tar
+env
