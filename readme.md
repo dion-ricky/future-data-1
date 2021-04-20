@@ -26,6 +26,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 
 ### 01-15 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+- [x] Eksplor pakai metabase utk mencari BQ
 
 ### 16-31 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
@@ -46,4 +47,5 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Redo warehouse on date_dim
 - [ ] Add time_dim to warehouse
 - [ ] Metabase recheck analysis after warehouse redoing
+- [ ] Install psycopg2 for Postgres driver ([link](https://www.psycopg.org/))
 
