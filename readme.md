@@ -39,3 +39,11 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [ ] Warehouse from metabase diubah ke ETL `TODO`
 - [x] Setup metabase
 - [x] Konfigurasi GeoJSON Indonesia for visualization
+
+### 16 - 30 April 2021
+- [x] Redo OLTP database
+- [x] Clean up warehouse ETL on talend
+- [x] Redo warehouse on date_dim
+- [ ] Add time_dim to warehouse
+- [ ] Metabase recheck analysis after warehouse redoing
+
