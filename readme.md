@@ -26,6 +26,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 
 ### 01-15 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+- [x] Eksplor pakai metabase utk mencari BQ
 
 ### 16-31 Maret 2021
 - [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
@@ -39,3 +40,14 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [ ] Warehouse from metabase diubah ke ETL `TODO`
 - [x] Setup metabase
 - [x] Konfigurasi GeoJSON Indonesia for visualization
+
+### 16 - 30 April 2021
+- [x] Redo OLTP database
+- [x] Clean up warehouse ETL on talend
+- [x] Redo warehouse on date_dim
+- [x] Dokumentasikan rancangan warehouse
+- [ ] Add time_dim to warehouse
+- [ ] Metabase recheck analysis after warehouse redoing
+- [ ] Install psycopg2 for Postgres driver ([link](https://www.psycopg.org/))
+- [x] Add parent/master category ([#13](https://github.com/dion-ricky/future-data/issues/13))
+
