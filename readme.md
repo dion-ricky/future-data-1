@@ -47,7 +47,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Redo warehouse on date_dim
 - [x] Dokumentasikan rancangan warehouse
 - [ ] Add time_dim to warehouse
-- [ ] Metabase recheck analysis after warehouse redoing
+- [x] Metabase recheck analysis after warehouse redoing
 - [ ] Install psycopg2 for Postgres driver ([link](https://www.psycopg.org/))
 - [x] Add parent/master category ([#13](https://github.com/dion-ricky/future-data/issues/13))
 
