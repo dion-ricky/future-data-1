@@ -51,3 +51,6 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [ ] Install psycopg2 for Postgres driver ([link](https://www.psycopg.org/))
 - [x] Add parent/master category ([#13](https://github.com/dion-ricky/future-data/issues/13))
 - [x] Apply SCD 2 to Feedback dimension
+
+### 1-15 Mei 2021
+- [ ] Continue ETL of facts
