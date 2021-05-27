@@ -1,7 +1,4 @@
 # Future Data Track
-| Nama |  No Absen|
-| ------ | :----: |
-| Dion Ricky Saputra | 08 |
 
 ## Deliverables
 1. Transactional Database Backup (.tar)
