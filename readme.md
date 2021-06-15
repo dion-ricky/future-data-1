@@ -53,4 +53,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [ ] Continue ETL of facts
 
 ### 16-31 Mei 2021
-- [ ] Redo project planning ([#14](https://github.com/dion-ricky/future-data/issues/14))
+- [x] Redo project planning ([#14](https://github.com/dion-ricky/future-data/issues/14))
+
+### 1-15 Juni 2021
+- [ ] Menulis analisis untuk Business Question #1 ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
