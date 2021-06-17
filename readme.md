@@ -57,3 +57,10 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 
 ### 1-15 Juni 2021
 - [ ] Menulis analisis untuk Business Question #1 ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
+
+### 16-30 Juni 2021
+- [ ] Jumlah seller per provinsi ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
+- [ ] Pengaruh foto terhadap penjualan produk ([#16](https://github.com/dion-ricky/future-data-1/issues/16))
+- [ ] Pengaruh voucher terhadap feedback ([#17](https://github.com/dion-ricky/future-data-1/issues/17))
+- [ ] Pengaruh keterlambatan pengiriman terhadap feedback ([#18](https://github.com/dion-ricky/future-data-1/issues/18))
+- [ ] Biaya tarif pengiriman per kg pada setiap kota/provinsi ([#19](https://github.com/dion-ricky/future-data-1/issues/19))
