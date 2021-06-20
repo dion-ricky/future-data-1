@@ -1,6 +1,7 @@
 **/.large_datasets
 **/.ipynb_checkpoints
 **/.secrets
+**/__pycache__
 ecommerce.bak
 ecommerce.tar
 env
