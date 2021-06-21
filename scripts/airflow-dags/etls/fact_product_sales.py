@@ -12,16 +12,16 @@ from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 
 config = {
     "script_name": "fact_product_sales",
-    "script_path": Variable.get("migration_script"),
+    "script_path": Variable.get("etl_script"),
     "conn_id": "ds_warehouse_postgres_local"
 }
 
 with DAG(
-    "_".join(["migration", config["script_name"]]),
-    description="DAG for Product Sales Fact Migration",
+    "_".join(["etl", config["script_name"]]),
+    description="DAG for Product Sales Fact ETL",
     schedule_interval=None,
     start_date=days_ago(1),
-    tags=["fact", "migration"]
+    tags=["fact", "etl"]
 ) as dag:
     start = DummyOperator(
         task_id="start"
