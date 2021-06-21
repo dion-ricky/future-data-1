@@ -1,5 +1,5 @@
 DROP TABLE
-	IF EXISTS public.fct_penjualan_produk;
+	IF EXISTS public.fact_product_sales;
 
 CREATE TABLE public.fact_product_sales (
 	product_sk int4 NOT NULL,
