@@ -7,7 +7,7 @@ INSERT INTO
 SELECT 
 	seller_state_id,
 	seller_state,
-	count(DISTINCT sales_count) AS sales_count
+	count(DISTINCT sales_item_key) AS sales_count
 FROM 
 	fact_seller_state fss 
 GROUP BY 1,2
