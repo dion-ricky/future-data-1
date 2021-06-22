@@ -1,4 +1,5 @@
 import os
+import re
 from datetime import timedelta
 
 from airflow import DAG
@@ -31,6 +32,26 @@ def extract_flag_url(row):
     r = row["Provinsi"].split(" ")
     return r[-1]
 
+def extract_int(row):
+    r = re.sub(r"\[\d*\]", "", row["Populasi(Proyeksi BPS 2020)"]) \
+        .replace(".", "").replace(",", "")
+    try:
+        r = int(r)
+    except Exception:
+        r = 0
+    finally:
+        return r
+
+def extract_float(row):
+    r = re.sub(r"\[\d*\]", "", row["IPM 2020"]) \
+        .replace(".", "").replace(",", ".")
+    try:
+        r = float(r)
+    except Exception:
+        r = 0.0
+    finally:
+        return r
+
 def insert_provinsi_pulau():
     pg_hook = PostgresHook(
             postgres_conn_id=config["conn_id"])
@@ -40,6 +61,8 @@ def insert_provinsi_pulau():
     df = pd.read_csv('/home/dion-ricky/future/PROJECT/scripts/local_datasets/provinsi_pulau_indonesia.csv')
     df["Flag"] = df.apply(lambda row: extract_flag_url(row), axis=1)
     df["Provinsi"] = df.apply(lambda row: extract_province_name(row), axis=1)
+    df["Populasi(Proyeksi BPS 2020)"] = df.apply(lambda row: extract_int(row), axis=1)
+    df["IPM 2020"] = df.apply(lambda row: extract_float(row), axis=1)
 
     for _, row in df.iterrows():
         row = list(row.values)

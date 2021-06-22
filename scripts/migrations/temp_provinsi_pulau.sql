@@ -7,13 +7,13 @@ CREATE TABLE public.temp_provinsi_pulau (
     iso varchar(10) NULL,
     ibukota varchar NULL,
     tanggal_diresmikan varchar NULL,
-    populasi_2020 varchar NULL,
+    populasi_2020 bigint NULL,
     luas_total varchar NULL,
     populasi_per_luas varchar NULL,
     apbd_2020 varchar NULL,
     pdrb_2020 varchar NULL,
     pdrb_per_kapita_2020 varchar NULL,
-    ipm_2020 varchar NULL,
+    ipm_2020 float8 NULL,
     agama_2020 varchar NULL,
     flag varchar NULL
 );
