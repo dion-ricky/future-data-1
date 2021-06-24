@@ -1,3 +1,5 @@
+from typing import Callable
+
 import pandas as pd
 
 from airflow.models.baseoperator import BaseOperator
@@ -10,11 +12,13 @@ class PostgreCSVOperator(BaseOperator):
             conn_id: str, # Airflow backend connection id
             script_path: str, # Path to INSERT script
             csv_path: str, # Path to CSV file
+            preprocess: Callable[[pd.DataFrame], pd.DataFrame] = lambda _: _, # Callable function for data preprocessing
             **kwargs) -> None:
         super().__init__(**kwargs)
         self.conn_id = conn_id
         self.script_path = script_path
         self.csv_path = csv_path
+        self.preprocess = preprocess
 
     def insert_csv(self):
         pg_hook = PostgresHook(
@@ -23,6 +27,7 @@ class PostgreCSVOperator(BaseOperator):
         cursor = conn.cursor()
 
         df = pd.read_csv(self.csv_path)
+        df = self.preprocess(df)
         script = open(self.script_path).read()
         cols = ",".join(["%s"] * len(df.columns))
 
