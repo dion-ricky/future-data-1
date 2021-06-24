@@ -11,9 +11,10 @@ WITH order_date AS (
 )
 
 INSERT INTO
-    public.fact_average_customer_spending (
+    public.fact_customer_monetary_value (
         state_id,
         "state",
+		user_sk,
         order_date,
         avg_spending,
         highest_spending,
@@ -21,9 +22,10 @@ INSERT INTO
         avg_shipping_cost_vs_price_ratio
     )
 
-SELECT 
+SELECT
 	ud.customer_state_id AS state_id,
 	ud.customer_state AS state,
+	ud.user_sk AS user_sk,
 	odt.date_id AS order_date,
 	avg(ts.total_spending) AS avg_spending,
 	max(ts.total_spending) AS highest_spending,
@@ -48,4 +50,4 @@ ON od.user_name = ud.user_name
 LEFT JOIN 
 	order_date odt
 ON od.order_key = odt.order_key
-GROUP BY 1,2,3;
+GROUP BY ROLLUP ((ud.customer_state_id, ud.customer_state), ud.user_sk, odt.date_id);

@@ -1,9 +1,10 @@
 DROP TABLE
-    IF EXISTS public.fact_average_customer_spending;
+    IF EXISTS public.fact_customer_monetary_value;
 
-CREATE TABLE public.fact_average_customer_spending (
+CREATE TABLE public.fact_customer_monetary_value (
     state_id int4 NULL,
     "state" varchar NULL,
+    user_sk int8 NULL,
     order_date int4 NULL,
     avg_spending float8 NULL,
     highest_spending float8 NULL,

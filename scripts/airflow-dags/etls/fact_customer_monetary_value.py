@@ -11,14 +11,14 @@ from airflow.models import Variable
 from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 
 config = {
-    "script_name": "fact_average_customer_spending",
+    "script_name": "fact_customer_monetary_value",
     "script_path": Variable.get("etl_script"),
     "conn_id": "ds_warehouse_postgres_local"
 }
 
 with DAG(
     "_".join(["etl", config["script_name"]]),
-    description="DAG for Product Sales Fact ETL",
+    description="DAG for Customer Monetary Value Fact ETL",
     schedule_interval=None,
     start_date=days_ago(1),
     tags=["fact", "etl"]
@@ -27,8 +27,8 @@ with DAG(
         task_id="start"
     )
 
-    fact_average_customer_spending = PostgreSQLOperator(
-        task_id="fact_average_customer_spending",
+    fact_customer_monetary_value = PostgreSQLOperator(
+        task_id="fact_customer_monetary_value",
         conn_id=config["conn_id"],
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"]))
@@ -38,4 +38,4 @@ with DAG(
         task_id="finish"
     )
 
-    start >> fact_average_customer_spending >> finish
+    start >> fact_customer_monetary_value >> finish
