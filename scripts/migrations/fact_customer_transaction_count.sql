@@ -1,5 +1,5 @@
 DROP TABLE
-    IF EXISTS public.mart_customer_transaction_count;
+    IF EXISTS public.fact_customer_transaction_count;
 
 CREATE TABLE public.fact_customer_transaction_count (
     user_name varchar NULL,

@@ -9,7 +9,7 @@ WITH order_date AS (
 	ON DATE(od.order_date) = dd.full_date
 )
 
-INSERT INTO public.mart_customer_transaction_count (
+INSERT INTO public.fact_customer_transaction_count (
     user_name,
 	order_date,
     order_count
