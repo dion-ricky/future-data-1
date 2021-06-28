@@ -6,16 +6,16 @@ WITH lod AS (
 )
 
 INSERT INTO public.mart_customer_recency (
-    user_sk,
+    user_name,
     last_order_interval
 )
 
 SELECT 
-	f.user_sk,
+	f.user_name,
 	lod.last_order_date - f.last_order AS last_order_interval
 FROM (
 	SELECT 
-		ud.user_sk,
+		ud.user_name,
 		max(od.order_date) AS last_order
 	FROM 
 		order_dim od
