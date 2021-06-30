@@ -1,3 +1,6 @@
+TRUNCATE public.fact_product_sales
+RESTART IDENTITY;
+
 INSERT INTO fact_product_sales(
     product_sk,
     order_date,
@@ -9,7 +12,7 @@ INSERT INTO fact_product_sales(
     max_price,
     total_order
 )
-SELECT 
+SELECT
 	pd.product_sk AS product_sk,
 	dd.date_id AS order_date,
 	avg(oid2.shipping_cost) AS avg_shipping_cost,
@@ -18,16 +21,15 @@ SELECT
 	avg(oid2.price) AS avg_price,
 	min(oid2.price) AS min_price,
 	max(oid2.price) AS max_price,
-	count(oid2.product_key) AS total_order
-FROM 
+	count(DISTINCT oid2.order_key) AS total_order
+FROM
 	product_dim pd
-LEFT JOIN
-	order_item_dim oid2 
-ON pd.product_key = oid2.product_key 
-LEFT JOIN 
-	order_dim od 
-ON oid2.order_key = od.order_key
-INNER JOIN
-	date_dim dd
-ON date(od.order_date) = dd.full_date 
-GROUP BY pd.product_sk, dd.date_id;
+LEFT JOIN order_item_dim oid2 ON
+	pd.product_key = oid2.product_key
+LEFT JOIN order_dim od ON
+	oid2.order_key = od.order_key
+INNER JOIN date_dim dd ON
+	date(od.order_date) = dd.full_date
+GROUP BY
+	pd.product_sk,
+	ROLLUP(dd.date_id);
