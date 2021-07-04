@@ -1,7 +1,11 @@
+#! /bin/bash
+cd "$(dirname "$0")"
+source ../env/bin/activate
+
 # airflow needs a home, ~/airflow is the default,
 # but you can lay foundation somewhere else if you prefer
 # (optional)
-export AIRFLOW_HOME=~/airflow
+export AIRFLOW_HOME=../airflow
 
 AIRFLOW_VERSION=2.1.0
 PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
@@ -15,6 +19,7 @@ airflow db init
 
 airflow users create \
     --username admin \
+    --password airflowadmin \
     --firstname Dion \
     --lastname Ricky \
     --role Admin \
