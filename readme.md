@@ -1,5 +1,10 @@
 # Future Data Track
 
+## Installation
+1. Clone this repository
+2. cd into `future-data-1`
+3. Run `setup.sh`
+
 ## Deliverables
 1. Transactional Database Backup (.tar)
     - Refer to https://github.com/dion-ricky/future-data/issues/5#issuecomment-805851266
