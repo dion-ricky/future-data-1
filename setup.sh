@@ -77,6 +77,8 @@ install_python_deps () {
 airflow_postinstall_config () {
     # create symlink of contrib and dags folder
     source ./env/bin/activate
+    export AIRFLOW_HOME=$(get_abs_filename "./airflow")
+
     if ! cmd_exists airflow; then
         die 'airflow is not installed; check for airflow installation'
     fi
@@ -105,7 +107,7 @@ airflow_postinstall_config () {
 airflow_setup () {
     log_debug "Installing and configuring airflow"
     {
-        bash ./scripts/_airflow-setup.sh
+        ./scripts/_airflow-setup.sh
     } || {
         die 'Failed to install airflow'
     }
