@@ -2,7 +2,6 @@ import os
 import subprocess
 import json
 
-
 def load_json(file):
     with open(file, 'r') as _f:
         while(_f.readline().strip() != 'START'):
@@ -19,10 +18,10 @@ AIRFLOW_VAR["etl_script"] = os.path.abspath(AIRFLOW_VAR["etl_script"])
 AIRFLOW_VAR["future_data_1_dag_path"] = os.path.abspath(AIRFLOW_VAR["future_data_1_dag_path"])
 AIRFLOW_VAR["migration_script"] = os.path.abspath(AIRFLOW_VAR["migration_script"])
 
-# with open('airflow.var.json', 'w') as _f:
-#     _f.write(
-#         json.dumps(AIRFLOW_VAR, indent = 4)
-#     )
+with open('airflow.var.json', 'w') as _f:
+    _f.write(
+        json.dumps(AIRFLOW_VAR, indent = 4)
+    )
 
 AIRFLOW_CONN = load_json('airflow.conn.cfg')
 
