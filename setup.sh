@@ -79,6 +79,8 @@ airflow_postinstall_config () {
     source ./env/bin/activate
     export AIRFLOW_HOME=$(get_abs_filename "./airflow")
 
+    pip install apache-airflow-providers-postgres
+
     if ! cmd_exists airflow; then
         die 'airflow is not installed; check for airflow installation'
     fi
