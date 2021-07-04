@@ -2,10 +2,15 @@
 cd "$(dirname "$0")"
 source ../env/bin/activate
 
+get_abs_filename() {
+  # $1 : relative filename
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
+}
+
 # airflow needs a home, ~/airflow is the default,
 # but you can lay foundation somewhere else if you prefer
 # (optional)
-export AIRFLOW_HOME=../airflow
+export AIRFLOW_HOME=$(get_abs_filename "../airflow")
 
 AIRFLOW_VERSION=2.1.0
 PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
