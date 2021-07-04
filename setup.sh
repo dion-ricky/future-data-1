@@ -40,9 +40,6 @@ check_deps () {
     if ! cmd_exists python3; then
         die 'python3 is not installed.'
     fi
-    if ! cmd_exists docker; then
-        die 'docker is not installed.'
-    fi
 }
 
 create_python_venv () {
