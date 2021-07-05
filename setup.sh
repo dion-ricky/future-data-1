@@ -108,7 +108,7 @@ install_python_deps () {
 airflow_postinstall_config () {
     # create symlink of contrib and dags folder
     source ./env/bin/activate
-    export AIRFLOW_HOME=$(get_abs_filename "./airflow")
+    export AIRFLOW_HOME=$(get_abs_filename "../airflow")
 
     pip install apache-airflow-providers-postgres
 
@@ -116,13 +116,13 @@ airflow_postinstall_config () {
         die 'airflow is not installed; check for airflow installation'
     fi
 
-    sed -i "s/^load_examples = .*$/load_examples = False/" "$(get_abs_filename "./airflow/airflow.cfg")"
+    sed -i "s/^load_examples = .*$/load_examples = False/" "$(get_abs_filename "../airflow/airflow.cfg")"
 
     log_debug "Creating symlink for contrib and DAG folder"
-    mkdir -p airflow/dags
+    mkdir -p ../airflow/dags
 
     DAG_FOLDER=$(get_abs_filename "./scripts/airflow-dags")
-    ln -s "$DAG_FOLDER" ./airflow/dags/future-project-1
+    ln -s "$DAG_FOLDER" ../airflow/dags/future-project-1
     
     CONTRIB=$(get_abs_filename "./scripts/airflow-dags/contrib")
     PV=$(get_py_ver)

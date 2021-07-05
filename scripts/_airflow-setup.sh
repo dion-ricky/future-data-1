@@ -10,7 +10,7 @@ get_abs_filename() {
 # airflow needs a home, ~/airflow is the default,
 # but you can lay foundation somewhere else if you prefer
 # (optional)
-export AIRFLOW_HOME=$(get_abs_filename "../airflow")
+export AIRFLOW_HOME=$(get_abs_filename "../../airflow")
 
 AIRFLOW_VERSION=2.1.0
 PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
