@@ -20,6 +20,7 @@ CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${A
 pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
 
 # initialize the database
+export AIRFLOW__CORE__LOAD_EXAMPLES=False # Init airflow without example dags
 airflow db init
 
 airflow users create \
