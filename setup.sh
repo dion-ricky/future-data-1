@@ -116,6 +116,8 @@ airflow_postinstall_config () {
         die 'airflow is not installed; check for airflow installation'
     fi
 
+    sed -i "s/^load_examples = .*$/load_examples = False/" "$(get_abs_filename "./airflow/airflow.cfg")"
+
     log_debug "Creating symlink for contrib and DAG folder"
     mkdir -p airflow/dags
 
