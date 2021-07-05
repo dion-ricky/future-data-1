@@ -42,6 +42,37 @@ check_deps () {
     fi
 }
 
+check_db() {
+    log_debug "Checking if user has database already installed"
+    echo "Have you installed postgres database yet?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) log_debug "User has confirmed the db installation"; break;;
+            No ) die "Install postgres db by executing setup_db.sh with root"; break;;
+        esac
+    done
+}
+
+prompt_var_conn_edit() {
+    log_debug "Asking user to edit airflow.var.cfg and airflow.conn.cfg"
+    
+    echo "Make sure that airflow connections is configured properly"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) log_debug "User has confirmed the airflow connections configuration"; break;;
+            No ) die "Please configure airflow connections through airflow.conn.cfg"; break;;
+        esac
+    done
+
+    echo "Make sure airflow variables is configured properly"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) log_debug "User has confirmed the airflow variables configuration"; break;;
+            No ) die "Please configure airflow variables through airflow.var.cfg"; break;;
+        esac
+    done
+}
+
 create_python_venv () {
     log_debug "Creating python virtual env"
     {
@@ -114,11 +145,31 @@ airflow_setup () {
         die 'Failed to install airflow'
     }
     log_debug "Airflow installation success"
-    airflow_postinstall_config
 }
 
-check_deps && \
-create_python_venv && \
-install_python_deps &&  \
-airflow_setup && \
-log_debug "Done."
+cleanup() {
+    log_debug "Deleting created temporary files"
+    rm ./airflow.var.json 2> /dev/null
+
+    # Assume no error on rm call
+    # even if file is not exists
+    return 0
+}
+
+if [[ "$1" ]]; then
+    {
+        $1
+    } || {
+        die "Function $1 is not defined"
+    }
+else
+    check_deps && \
+    check_db && \
+    prompt_var_conn_edit && \
+    create_python_venv && \
+    install_python_deps &&  \
+    airflow_setup && \
+    airflow_postinstall_config && \
+    cleanup && \
+    log_debug "Done."
+fi
