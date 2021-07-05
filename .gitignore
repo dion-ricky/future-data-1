@@ -3,6 +3,7 @@
 **/.secrets
 **/__pycache__
 **/airflow
+**/postgresdata
 ecommerce.bak
 ecommerce.tar
 env
