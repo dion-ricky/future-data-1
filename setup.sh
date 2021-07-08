@@ -149,6 +149,16 @@ airflow_setup () {
     log_debug "Airflow installation success"
 }
 
+jupyter_setup () {
+    log_debug "Installing and configuring jupyter-lab"
+    source ./env/bin/activate
+    pip install jupyterlab
+    if ! cmd_exists jupyter-lab; then
+        die "jupyter-lab installation failed"
+    fi
+    deactivate
+}
+
 cleanup() {
     log_debug "Deleting created temporary files"
     rm ./airflow.var.json 2> /dev/null
@@ -172,6 +182,7 @@ else
     install_python_deps &&  \
     airflow_setup && \
     airflow_postinstall_config && \
+    jupyter_setup && \
     cleanup && \
     log_debug "Done."
 fi
