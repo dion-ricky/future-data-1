@@ -27,19 +27,17 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Buat DWH ([#6](https://github.com/dion-ricky/future-data/issues/6))
 
 ### 01-15 Maret 2021
-- [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+- [x] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 - [x] Eksplor pakai metabase utk mencari BQ
 
 ### 16-31 Maret 2021
-- [ ] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
+- [x] Membuat 5 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 - [x] Rancang dan eksekusi ETL dimension table ([#8](https://github.com/dion-ricky/future-data/issues/8))
 - [x] Metabase map visualization transformation ([#10](https://github.com/dion-ricky/future-data/issues/10))
 
 ### 01-15 April 2021
 - [x] Menemukan 3 Business Question ([#3](https://github.com/dion-ricky/future-data/issues/3))
 - [x] Membuat warehouse di metabase utk [BQ](https://github.com/dion-ricky/future-data/issues/3#issuecomment-809860470)
-- [ ] Warehouse analisis pengiriman `TODO`
-- [ ] Warehouse from metabase diubah ke ETL `TODO`
 - [x] Setup metabase
 - [x] Konfigurasi GeoJSON Indonesia for visualization
 
@@ -50,22 +48,22 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Dokumentasikan rancangan warehouse
 - [x] Add time_dim to warehouse
 - [x] Metabase recheck analysis after warehouse redoing
-- [ ] Install psycopg2 for Postgres driver ([link](https://www.psycopg.org/))
+- [x] Install psycopg2 for Postgres driver ([link](https://www.psycopg.org/))
 - [x] Add parent/master category ([#13](https://github.com/dion-ricky/future-data/issues/13))
 - [x] Apply SCD 2 to Feedback dimension
 
 ### 1-15 Mei 2021
-- [ ] Continue ETL of facts
+- [x] Continue ETL of facts
 
 ### 16-31 Mei 2021
 - [x] Redo project planning ([#14](https://github.com/dion-ricky/future-data/issues/14))
 
 ### 1-15 Juni 2021
-- [ ] Menulis analisis untuk Business Question #1 ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
+- [x] Menulis analisis untuk Business Question #1 ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
 
 ### 16-30 Juni 2021
-- [ ] Jumlah seller per provinsi ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
-- [ ] Pengaruh foto terhadap penjualan produk ([#16](https://github.com/dion-ricky/future-data-1/issues/16))
-- [ ] Pengaruh voucher terhadap feedback ([#17](https://github.com/dion-ricky/future-data-1/issues/17))
-- [ ] Pengaruh keterlambatan pengiriman terhadap feedback ([#18](https://github.com/dion-ricky/future-data-1/issues/18))
-- [ ] Biaya tarif pengiriman per kg pada setiap kota/provinsi ([#19](https://github.com/dion-ricky/future-data-1/issues/19))
+- [x] Jumlah seller per provinsi ([#15](https://github.com/dion-ricky/future-data-1/issues/15))
+- [x] Pengaruh foto terhadap penjualan produk ([#16](https://github.com/dion-ricky/future-data-1/issues/16))
+- [x] Pengaruh voucher terhadap feedback ([#17](https://github.com/dion-ricky/future-data-1/issues/17))
+- [x] Pengaruh keterlambatan pengiriman terhadap feedback ([#18](https://github.com/dion-ricky/future-data-1/issues/18))
+- [x] Biaya tarif pengiriman per kg pada setiap kota/provinsi ([#19](https://github.com/dion-ricky/future-data-1/issues/19))
