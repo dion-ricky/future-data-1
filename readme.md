@@ -3,7 +3,9 @@
 ## Installation
 1. Clone this repository
 2. cd into `future-data-1`
-3. Run `setup.sh`
+3. Make sure PostgresDB is installed, if not yet run `setup_db.sh`. Make sure Docker is installed.
+4. Update Airflow config on `airflow.conn.cfg` and `airflow.var.cfg`
+6. Run `setup.sh`
 
 ## Deliverables
 1. Transactional Database Backup (.tar)
