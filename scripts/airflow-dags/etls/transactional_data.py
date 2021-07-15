@@ -98,7 +98,7 @@ with DAG(
                                     ".".join(["trx_feedback", "sql"])),
         csv_path=os.path.join(config["local_dataset_path"],
                                     "feedback_dataset.csv"),
-        preprocess=lambda _: feedback_preprocess(df)
+        preprocess=lambda _: feedback_preprocess(_)
     )
 
     def payment_preprocess(df):
@@ -141,7 +141,7 @@ with DAG(
         script_path=os.path.join(config["script_path"],
                                     ".".join(["trx_product", "sql"])),
         csv_path=os.path.join(config["local_dataset_path"],
-                                    "product_dataset.csv"),
+                                    "products_dataset.csv"),
         preprocess=lambda _: product_preprocess(_)
     )
     
