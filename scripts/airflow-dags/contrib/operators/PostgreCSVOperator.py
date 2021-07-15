@@ -12,12 +12,14 @@ class PostgreCSVOperator(BaseOperator):
             conn_id: str, # Airflow backend connection id
             script_path: str, # Path to INSERT script
             csv_path: str, # Path to CSV file
+            batch_size: int = 10000, # Number of query before committed
             preprocess: Callable[[pd.DataFrame], pd.DataFrame] = lambda _: _, # Callable function for data preprocessing
             **kwargs) -> None:
         super().__init__(**kwargs)
         self.conn_id = conn_id
         self.script_path = script_path
         self.csv_path = csv_path
+        self.batch_size = batch_size
         self.preprocess = preprocess
 
     def insert_csv(self):
@@ -31,12 +33,21 @@ class PostgreCSVOperator(BaseOperator):
         script = open(self.script_path).read()
         cols = ",".join(["%s"] * len(df.columns))
 
+        counter = 0
+
         for _, row in df.iterrows():
+            # Increment counter, need to know when to commit
+            counter = counter + 1
+
             row = list(row.values)
             cursor.execute(
                 script.format(cols),
                 row
             )
+
+            if counter == self.batch_size:
+                conn.commit()
+                counter = 0
         
         conn.commit()
         return cursor.statusmessage
