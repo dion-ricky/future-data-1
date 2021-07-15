@@ -69,3 +69,9 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Pengaruh voucher terhadap feedback ([#17](https://github.com/dion-ricky/future-data-1/issues/17))
 - [x] Pengaruh keterlambatan pengiriman terhadap feedback ([#18](https://github.com/dion-ricky/future-data-1/issues/18))
 - [x] Biaya tarif pengiriman per kg pada setiap kota/provinsi ([#19](https://github.com/dion-ricky/future-data-1/issues/19))
+
+### 1-15 Juli 2021
+- [x] Prepare Jupyter environment
+- [x] Created setup.sh for easier environment installation
+- [ ] Reinstall all env on remote because of connectivity problem
+- [ ] Reinstall all env on local as a backup
