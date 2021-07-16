@@ -96,6 +96,7 @@ install_python_deps () {
             source ./env/bin/activate
             pip install wheel
             pip install psycopg2-binary
+	    pip install -r requirements.txt
             deactivate
         else
             die 'requirements.txt does not exists'
