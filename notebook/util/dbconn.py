@@ -2,7 +2,7 @@ import psycopg2
 
 DEFAULT_CONNECTION = {
     'password': 'qshOke46RvOg0',
-    'host': '35.184.46.9',
+    'host': 'localhost',
     'port': '8084',
     'dbname': 'ecommerce',
     'user': 'postgres'
