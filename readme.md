@@ -75,3 +75,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 - [x] Created setup.sh for easier environment installation
 - [ ] Reinstall all env on remote because of connectivity problem
 - [ ] Reinstall all env on local as a backup
+
+### 16-31 Juli 2021
+- [x] K-Means clustering for MLv1
+- [x] Agglomerative hierarchical clustering for MLv1
