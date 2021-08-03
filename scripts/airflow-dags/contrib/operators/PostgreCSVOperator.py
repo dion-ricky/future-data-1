@@ -14,6 +14,7 @@ class PostgreCSVOperator(BaseOperator):
             csv_path: str, # Path to CSV file
             batch_size: int = 10000, # Number of query before committed
             preprocess: Callable[[pd.DataFrame], pd.DataFrame] = lambda _: _, # Callable function for data preprocessing
+            sep: str = ',', # Pandas read_csv separator
             **kwargs) -> None:
         super().__init__(**kwargs)
         self.conn_id = conn_id
@@ -21,6 +22,7 @@ class PostgreCSVOperator(BaseOperator):
         self.csv_path = csv_path
         self.batch_size = batch_size
         self.preprocess = preprocess
+        self.sep = sep
 
     def insert_csv(self):
         pg_hook = PostgresHook(
@@ -28,7 +30,7 @@ class PostgreCSVOperator(BaseOperator):
         conn = pg_hook.get_conn()
         cursor = conn.cursor()
 
-        df = pd.read_csv(self.csv_path)
+        df = pd.read_csv(self.csv_path, sep=self.sep)
         df = self.preprocess(df)
         script = open(self.script_path).read()
         cols = ",".join(["%s"] * len(df.columns))
