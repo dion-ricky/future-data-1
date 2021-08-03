@@ -1,6 +1,8 @@
 CREATE SCHEMA IF NOT EXISTS warehouse;
 
-CREATE TABLE IF NOT EXISTS warehouse.order_dim (
+DROP TABLE IF EXISTS warehouse.order_dim;
+
+CREATE TABLE warehouse.order_dim (
     order_sk SERIAL,
     order_key VARCHAR NULL,
     "user_name" VARCHAR NULL,
