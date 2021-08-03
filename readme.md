@@ -79,3 +79,7 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 ### 16-31 Juli 2021
 - [x] K-Means clustering for MLv1
 - [x] Agglomerative hierarchical clustering for MLv1
+
+### 01-15 Agustus 2021
+- [x] DBSCAN clustering for MLv1 (Ran into problem not enough memory)
+- [ ] Find out how to improve ML performance
