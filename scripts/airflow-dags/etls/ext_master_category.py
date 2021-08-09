@@ -12,7 +12,7 @@ from airflow.models import Variable
 from contrib.operators.PostgreCSVOperator import PostgreCSVOperator
 
 config = {
-    "script_name": "temp_master_category",
+    "script_name": "ext_master_category",
     "script_path": Variable.get("etl_script"),
     "local_dataset_path": Variable.get("ds_local_dataset"),
     "conn_id": "ds_postgres_local"
@@ -29,17 +29,17 @@ def extract_int(row, col):
 
 with DAG(
     "_".join(["etl", config["script_name"]]),
-    description="DAG for Temp Master Category ETL",
+    description="DAG for Ext Master Category ETL",
     schedule_interval=None,
     start_date=days_ago(1),
-    tags=["temp", "etl"]
+    tags=["ext", "etl"]
 ) as dag:
     start = DummyOperator(
         task_id="start"
     )
 
-    temp_master_category = PostgreCSVOperator(
-        task_id="temp_master_category",
+    ext_master_category = PostgreCSVOperator(
+        task_id="ext_master_category",
         conn_id=config["conn_id"],
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"])),
@@ -52,4 +52,4 @@ with DAG(
         task_id="finish"
     )
 
-    start >> temp_master_category >> finish
+    start >> ext_master_category >> finish

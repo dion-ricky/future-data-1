@@ -1,28 +1,22 @@
 INSERT INTO warehouse.product_dim (
+	product_sk,
     product_key,
     product_master_category,
-    product_category,
-    product_name_length,
-    product_description_length,
-    product_photos_qty,
-    product_weight_g,
-    product_length_cm,
-    product_height_cm,
-    product_width_cm
+    product_category
 )
 
+WITH temp_product AS (
 SELECT
-	product_id AS product_key,
-	tmc.master_category AS product_master_category,
-	product_category,
-	product_name_lenght,
-	product_description_lenght,
-	product_photos_qty,
-	product_weight_g,
-	product_length_cm,
-	product_height_cm,
-	product_width_cm
+	p.product_id AS product_key,
+	emc.master_category AS product_master_category,
+	p.product_category
 FROM
-	public.product
-LEFT JOIN warehouse.temp_master_category tmc ON
-	product_category = tmc.category;
+	public.product p
+LEFT JOIN staging.ext_master_category emc ON
+	lower(p.product_category) = lower(emc.category) )
+SELECT
+	ROW_NUMBER() OVER (
+	ORDER BY 1) AS product_sk,
+	tp.*
+FROM
+	temp_product tp;
