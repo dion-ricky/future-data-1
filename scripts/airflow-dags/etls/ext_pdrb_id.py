@@ -15,7 +15,7 @@ config = {
     "script_name": "ext_pdrb_id",
     "script_path": Variable.get("etl_script"),
     "local_dataset_path": Variable.get("ds_local_dataset"),
-    "conn_id": "ds_warehouse_postgres_local"
+    "conn_id": "ds_postgres_local"
 }
 
 def extract_int(row, col):
