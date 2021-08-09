@@ -1,5 +1,5 @@
 INSERT INTO
-    public.ext_state_population (
+    staging.fact_state_population (
         state_id,
         "state",
         predicted_population_2020

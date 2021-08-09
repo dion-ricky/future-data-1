@@ -1,4 +1,4 @@
-INSERT INTO warehouse.temp_indonesia_geoprops (
+INSERT INTO staging.ext_indonesia_geoprops (
     cartodb_id,
     country,
     id_1,

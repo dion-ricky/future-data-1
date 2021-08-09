@@ -11,24 +11,24 @@ from airflow.models import Variable
 from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 
 config = {
-    "script_name": "ext_state_population",
-    "script_path": Variable.get("migration_script"),
+    "script_name": "dim_location",
+    "script_path": Variable.get("etl_script"),
     "conn_id": "ds_postgres_local"
 }
 
 with DAG(
-    "_".join(["migration", config["script_name"]]),
-    description="DAG for External Sourced State Population Migration",
+    "_".join(["etl", config["script_name"]]),
+    description="DAG for Location Dimension ETL",
     schedule_interval=None,
     start_date=days_ago(1),
-    tags=["ext", "migration"]
+    tags=["dim", "etl"]
 ) as dag:
     start = DummyOperator(
         task_id="start"
     )
 
-    ext_state_population = PostgreSQLOperator(
-        task_id="ext_state_population",
+    dim_location = PostgreSQLOperator(
+        task_id="dim_location",
         conn_id=config["conn_id"],
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"]))
@@ -38,4 +38,4 @@ with DAG(
         task_id="finish"
     )
 
-    start >> ext_state_population >> finish
+    start >> dim_location >> finish

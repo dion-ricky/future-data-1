@@ -11,24 +11,24 @@ from airflow.models import Variable
 from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 
 config = {
-    "script_name": "schema_warehouse",
+    "script_name": "int_address_region",
     "script_path": Variable.get("migration_script"),
     "conn_id": "ds_postgres_local"
 }
 
 with DAG(
     "_".join(["migration", config["script_name"]]),
-    description="DAG for Creating Warehouse Schema",
+    description="DAG for Internal Data Address Region Migration",
     schedule_interval=None,
     start_date=days_ago(1),
-    tags=["mart", "migration"]
+    tags=["int", "migration"]
 ) as dag:
     start = DummyOperator(
         task_id="start"
     )
 
-    schema_warehouse = PostgreSQLOperator(
-        task_id="schema_warehouse",
+    int_address_region = PostgreSQLOperator(
+        task_id="int_address_region",
         conn_id=config["conn_id"],
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"]))
@@ -38,4 +38,4 @@ with DAG(
         task_id="finish"
     )
 
-    start >> schema_warehouse >> finish
+    start >> int_address_region >> finish
