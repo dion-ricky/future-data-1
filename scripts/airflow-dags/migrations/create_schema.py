@@ -11,7 +11,7 @@ from airflow.models import Variable
 from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 
 config = {
-    "script_name": "schema_warehouse",
+    "script_name": "create_schema",
     "script_path": Variable.get("migration_script"),
     "conn_id": "ds_postgres_local"
 }
