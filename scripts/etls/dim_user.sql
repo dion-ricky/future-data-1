@@ -1,18 +1,16 @@
 INSERT INTO warehouse.user_dim (
-    "user_name",
-    customer_zip_code,
-    customer_city,
-    customer_state,
-    customer_state_id
+	user_sk,
+    user_legacy_id
 )
 
+WITH user_name AS (
 SELECT
-	"user_name",
-    customer_zip_code,
-    customer_city,
-    customer_state,
-	tig.id_1 AS customer_state_id
+	DISTINCT user_name AS user_legacy_id
 FROM
-	public."user" u
-LEFT JOIN warehouse.temp_indonesia_geoprops tig ON
-	lower(trim(u.customer_state)) = lower(trim(tig.state));
+	public."user" u )
+SELECT
+	ROW_NUMBER () OVER (
+	ORDER BY 1) AS user_sk,
+	*
+FROM
+	user_name un;
