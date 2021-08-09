@@ -12,7 +12,7 @@ from airflow.models import Variable
 from contrib.operators.PostgreCSVOperator import PostgreCSVOperator
 
 config = {
-    "script_name": "temp_indonesia_geoprops",
+    "script_name": "ext_indonesia_geoprops",
     "script_path": Variable.get("etl_script"),
     "local_dataset_path": Variable.get("ds_local_dataset"),
     "conn_id": "ds_postgres_local"
@@ -32,14 +32,14 @@ with DAG(
     description="DAG for Temp Indonesia Geoprops ETL",
     schedule_interval=None,
     start_date=days_ago(1),
-    tags=["temp", "etl"]
+    tags=["ext", "etl"]
 ) as dag:
     start = DummyOperator(
         task_id="start"
     )
 
-    temp_indonesia_geoprops = PostgreCSVOperator(
-        task_id="temp_indonesia_geoprops",
+    ext_indonesia_geoprops = PostgreCSVOperator(
+        task_id="ext_indonesia_geoprops",
         conn_id=config["conn_id"],
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"])),
@@ -52,4 +52,4 @@ with DAG(
         task_id="finish"
     )
 
-    start >> temp_indonesia_geoprops >> finish
+    start >> ext_indonesia_geoprops >> finish
