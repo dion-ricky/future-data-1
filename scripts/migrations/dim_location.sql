@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS warehouse.location_dim;
+DROP TABLE IF EXISTS warehouse.location_dim CASCADE;
 
 CREATE TABLE warehouse.location_dim (
     location_sk int4 null,
@@ -10,5 +10,6 @@ CREATE TABLE warehouse.location_dim (
     cartodb_id int4 null,
     country varchar null,
     lat float8 null,
-    long float8 null
+    long float8 null,
+    CONSTRAINT location_dim_pkey PRIMARY KEY(location_sk)
 );

@@ -1,9 +1,9 @@
 CREATE SCHEMA IF NOT EXISTS warehouse;
 
-DROP TABLE IF EXISTS warehouse.date_dim;
+DROP TABLE IF EXISTS warehouse.date_dim CASCADE;
 
 CREATE TABLE warehouse.date_dim (
-    date_id SERIAL,
+    date_id INT4,
     full_date DATE NULL,
     "date" SMALLINT NULL,
     "month" SMALLINT NULL,
@@ -16,5 +16,6 @@ CREATE TABLE warehouse.date_dim (
     week_num_in_year SMALLINT NULL,
     month_name VARCHAR NULL,
     month_abbrev VARCHAR NULL,
-    yearmo INT4 NULL
+    yearmo INT4 NULL,
+    CONSTRAINT date_dim_pkey PRIMARY KEY(date_id)
 );
