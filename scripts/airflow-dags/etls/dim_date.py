@@ -64,8 +64,17 @@ def preprocess(df):
     
     for col in int_cols:
         df[col] = df.apply(lambda row: extract_int(row, col), axis=1)
+
+    nulls = pd.DataFrame([[-1, None, None, None, None, None, None, None, None, None, None, None, None, None]],
+                columns=['date key', 'full date',
+                        'day of week', 'date',
+                        'day name', 'day abbrev',
+                        'weekday flag', 'week num in year',
+                        'month', 'month name',
+                        'month abbrev', 'quarter',
+                        'year', 'yearmo'])
     
-    return df
+    return df.append(nulls)
 
 with DAG(
     "_".join(["etl", config["script_name"]]),

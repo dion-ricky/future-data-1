@@ -31,3 +31,28 @@ LEFT JOIN staging.ext_provinsi_pulau epp ON
 	lower(iar.state) = lower(epp.provinsi)
 LEFT JOIN staging.ext_lat_long_kabko_id ellki ON
 	lower(iar.city) = lower(ellki.kabko);
+
+INSERT INTO warehouse.location_dim (
+    location_sk,
+    state_id,
+    state,
+    city,
+    zip_code,
+    slug,
+    cartodb_id,
+    country,
+    lat,
+    long
+)
+VALUES (
+	-1,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL
+);

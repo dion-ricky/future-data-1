@@ -43,8 +43,10 @@ def preprocess(df):
 
     for col in int_cols:
         df[col] = df.apply(lambda row: extract_int(row, col), axis=1)
+    
+    nulls = pd.DataFrame([[-1, None, None, None, None]], columns=['time_id', 'time', 'hour', 'minute', 'second'])
 
-    return df
+    return df.append(nulls)
 
 with DAG(
     "_".join(["etl", config["script_name"]]),

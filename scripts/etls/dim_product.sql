@@ -1,6 +1,6 @@
 INSERT INTO warehouse.product_dim (
 	product_sk,
-    product_key,
+    product_legacy_id,
     product_master_category,
     product_category
 )
@@ -20,3 +20,12 @@ SELECT
 	tp.*
 FROM
 	temp_product tp;
+
+-- Null product
+INSERT INTO warehouse.product_dim (
+	product_sk,
+    product_legacy_id,
+    product_master_category,
+    product_category
+)
+VALUES (-1, NULL, NULL, NULL);

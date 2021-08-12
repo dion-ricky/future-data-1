@@ -14,3 +14,10 @@ SELECT
 	*
 FROM
 	seller_key sk;
+
+-- Null seller
+INSERT INTO warehouse.seller_dim (
+	seller_sk,
+	seller_legacy_id
+)
+VALUES (-1, null);

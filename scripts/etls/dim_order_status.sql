@@ -14,3 +14,10 @@ SELECT
 	*
 FROM
 	order_status os;
+
+-- Null order_status
+INSERT INTO warehouse.order_status_dim(
+    order_status_sk,
+    order_status
+)
+VALUES (-1, NULL);

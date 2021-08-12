@@ -14,3 +14,10 @@ SELECT
 	*
 FROM
 	user_name un;
+
+-- Null user
+INSERT INTO warehouse.user_dim (
+	user_sk,
+    user_legacy_id
+)
+VALUES (-1, null);
