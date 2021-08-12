@@ -6,7 +6,7 @@ INSERT INTO warehouse.fact_product_metrics (
     product_weight_g,
     product_length_cm,
     product_height_cm,
-    product_width_cm,
+    product_width_cm
 )
 
 SELECT 
@@ -19,6 +19,6 @@ SELECT
 	p.product_height_cm,
 	p.product_width_cm
 FROM 
-	product_dim pd
+	warehouse.product_dim pd
 LEFT JOIN public.product p ON
 	pd.product_legacy_id = p.product_id;
