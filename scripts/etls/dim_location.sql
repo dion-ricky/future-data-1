@@ -1,7 +1,11 @@
 INSERT INTO warehouse.location_dim (
     location_sk,
+	pulau,
     state_id,
     state,
+	state_iso,
+	state_capital,
+	state_flag,
     city,
     zip_code,
     slug,
@@ -14,8 +18,12 @@ INSERT INTO warehouse.location_dim (
 SELECT
 	ROW_NUMBER () OVER(
 	ORDER BY 1) AS location_sk,
+	epp.pulau,
 	eig.id_1 AS state_id,
 	iar.state,
+	epp.iso AS state_iso,
+	epp.ibukota AS state_capital,
+	epp.flag AS state_flag,
 	iar.city,
 	iar.zip_code,
 	eig.slug,
