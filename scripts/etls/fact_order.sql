@@ -1,13 +1,13 @@
 INSERT INTO warehouse.fact_order (
     order_date,
     order_time,
+	order_legacy_id,
     seller_sk,
     user_sk,
     product_sk,
     seller_location_sk,
     customer_location_sk,
     order_status_sk,
-    order_count,
     item_count
 )
 
@@ -77,13 +77,13 @@ LEFT JOIN warehouse.location_dim ld ON
 SELECT 
 	odt.order_date,
 	ott.order_time,
+	o.order_id,
 	COALESCE (sd.seller_sk, -1),
 	COALESCE (ud.user_sk, -1),
 	COALESCE (pd.product_sk, -1),
 	COALESCE (slc.seller_location, -1),
 	COALESCE (clc.customer_location, -1),
 	COALESCE (osd.order_status_sk, -1),
-	count(DISTINCT o.order_id) AS order_count,
 	count(DISTINCT oi.order_item_id) AS item_count
 FROM 
 	public."order" o
@@ -105,4 +105,4 @@ LEFT JOIN warehouse.seller_dim sd ON
 	oi.seller_id = sd.seller_legacy_id
 LEFT JOIN warehouse.product_dim pd ON
 	oi.product_id = pd.product_legacy_id
-GROUP BY 1, 2, 3, 4, 5, 6, 7, 8;
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9;

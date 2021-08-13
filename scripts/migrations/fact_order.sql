@@ -3,18 +3,20 @@ DROP TABLE IF EXISTS warehouse.fact_order;
 CREATE TABLE warehouse.fact_order (
     order_date int4,
     order_time int4,
+    order_legacy_id varchar,
     seller_sk int4,
     user_sk int4,
     product_sk int4,
     seller_location_sk int4,
     customer_location_sk int4,
     order_status_sk int4,
-    order_count int4 null,
     item_count int4 null,
     CONSTRAINT fact_order_pkey PRIMARY KEY (
                                 order_date, order_time,
-                                seller_sk, user_sk, product_sk,
-                                seller_location_sk, customer_location_sk,
+                                order_legacy_id, seller_sk,
+                                user_sk, product_sk,
+                                seller_location_sk,
+                                customer_location_sk,
                                 order_status_sk)
 );
 

@@ -1,63 +1,22 @@
-TRUNCATE public.mart_customer_order_frequency
+TRUNCATE warehouse.mart_customer_order_frequency
 RESTART IDENTITY;
 
-WITH clean_order AS (
+WITH fact_order_clean AS (
 SELECT
 	*
 FROM
-	order_dim od2
+	warehouse.fact_order fo
 WHERE
-	lower(trim(order_status)) NOT IN ('unavailable', 'canceled', 'created') ),
-user_ordered_more_than_once AS (
-SELECT
-	co.user_name
-FROM
-	clean_order co
-GROUP BY
-	1
-HAVING
-	count(DISTINCT co.order_key) > 1 )
+	fo.order_status_sk NOT IN (-1, 2, 8) )
 
-INSERT INTO public.mart_customer_order_frequency (
-	user_name,
-	order_count,
-	avg_time_between_order
+INSERT INTO warehouse.mart_customer_order_frequency (
+	user_sk,
+	count_order
 )
 
 SELECT
-	e.user_name,
-	e.order_count,
-	COALESCE (g.avg_time_between_order,
-	make_interval(0)) AS avg_time_between_order
-FROM
-	(
-	SELECT
-		co.user_name,
-		count(DISTINCT co.order_sk) AS order_count
-	FROM
-		clean_order co
-	GROUP BY
-		co.user_name ) e
-LEFT JOIN (
-	SELECT
-		f.user_name,
-		AVG(f.order_date - f.prev_order_date) AS avg_time_between_order
-	FROM
-		(
-		SELECT
-			user_name,
-			order_date,
-			LAG(order_date) OVER(PARTITION BY user_name
-		ORDER BY
-			order_date) AS prev_order_date
-		FROM
-			clean_order
-		WHERE
-			user_name IN (
-			SELECT
-				*
-			FROM
-				user_ordered_more_than_once) ) AS f
-	GROUP BY
-		f.user_name )g ON
-	e.user_name = g.user_name;
+	foc.user_sk,
+	count(DISTINCT foc.order_legacy_id) AS count_order
+FROM 
+	fact_order_clean foc
+GROUP BY 1;

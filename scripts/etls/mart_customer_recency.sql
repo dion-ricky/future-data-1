@@ -1,35 +1,38 @@
-TRUNCATE public.mart_customer_recency
+TRUNCATE warehouse.mart_customer_recency
 RESTART IDENTITY;
 
-WITH lod AS (
-SELECT
-	max(od.order_date) + INTERVAL '1' DAY AS last_order_date
-FROM
-	order_dim od ),
-clean_order AS (
+WITH fact_order_clean AS (
 SELECT
 	*
 FROM
-	order_dim od2
+	warehouse.fact_order fo
 WHERE
-	lower(trim(order_status)) NOT IN ('unavailable', 'canceled', 'created') )
+	fo.order_status_sk NOT IN (-1, 2, 8) ),
+lod AS (
+SELECT
+	max(dd.full_date) + INTERVAL '1' DAY AS last_order_date
+FROM
+	warehouse.fact_order fo
+LEFT JOIN warehouse.date_dim dd ON
+	fo.order_date = dd.date_id )
 
-INSERT INTO
-	public.mart_customer_recency ( user_name,
-	last_order_interval )
+INSERT INTO warehouse.mart_customer_recency (
+	user_sk,
+	last_order_interval
+)
 
 SELECT
-	f.user_name,
-	lod.last_order_date - f.last_order AS last_order_interval
+	f.user_sk,
+	lod.last_order_date - f.last_order_date AS last_order_interval
 FROM
 	(
 	SELECT
-		ud.user_name,
-		max(od.order_date) AS last_order
+		foc.user_sk,
+		max(dd2.full_date) AS last_order_date
 	FROM
-		clean_order od
-	LEFT JOIN user_dim ud ON
-		od.user_name = ud.user_name
+		fact_order_clean foc
+	LEFT JOIN warehouse.date_dim dd2 ON
+		foc.order_date = dd2.date_id
 	GROUP BY
 		1 ) AS f,
-	lod;
+	lod ;
