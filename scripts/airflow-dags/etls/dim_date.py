@@ -93,7 +93,7 @@ with DAG(
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"])),
         csv_path=os.path.join(config["local_dataset_path"],
-                                    "Ch3-SampleDateDim_2014-2019.csv"),
+                                    "Ch3-SampleDateDim_2014-2022.csv"),
         preprocess=lambda _: preprocess(_),
         sep=';'
     )
