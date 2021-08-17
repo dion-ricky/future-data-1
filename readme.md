@@ -82,4 +82,11 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 
 ### 01-15 Agustus 2021
 - [x] DBSCAN clustering for MLv1 (Ran into problem not enough memory)
-- [ ] Find out how to improve ML performance
+- [x] SVR, SGD, MLP for sales prediction
+
+### 16-31 Agustus 2021
+- [x] Hyperparameter tuning for unsupervised model
+- [x] Hyperparameter tuning for supervised model
+- [ ] Prepare powerpoint
+- [ ] Write blog post
+- [ ] Finalize project deliverables
