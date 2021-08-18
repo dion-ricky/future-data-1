@@ -11,9 +11,9 @@ from airflow.models import Variable
 from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 
 config = {
-    "script_name": "mart_product_photos_qty_comparison_by_popularity",
+    "script_name": "mart_photos_qty_vs_popularity",
     "script_path": Variable.get("etl_script"),
-    "conn_id": "ds_warehouse_postgres_local"
+    "conn_id": "ds_postgres_local"
 }
 
 with DAG(
@@ -27,8 +27,8 @@ with DAG(
         task_id="start"
     )
 
-    mart_product_photos_qty_comparison_by_popularity = PostgreSQLOperator(
-        task_id="mart_product_photos_qty_comparison_by_popularity",
+    mart_photos_qty_vs_popularity = PostgreSQLOperator(
+        task_id="mart_photos_qty_vs_popularity",
         conn_id=config["conn_id"],
         script_path=os.path.join(config["script_path"],
                                     ".".join([config["script_name"], "sql"]))
@@ -38,4 +38,4 @@ with DAG(
         task_id="finish"
     )
 
-    start >> mart_product_photos_qty_comparison_by_popularity >> finish
+    start >> mart_photos_qty_vs_popularity >> finish

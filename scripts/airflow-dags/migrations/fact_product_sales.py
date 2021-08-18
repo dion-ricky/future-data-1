@@ -13,7 +13,7 @@ from contrib.operators.PostgreSQLOperator import PostgreSQLOperator
 config = {
     "script_name": "fact_product_sales",
     "script_path": Variable.get("migration_script"),
-    "conn_id": "ds_warehouse_postgres_local"
+    "conn_id": "ds_postgres_local"
 }
 
 with DAG(

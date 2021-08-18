@@ -1,25 +1,22 @@
 DROP TABLE
-	IF EXISTS public.fact_product_sales;
+	IF EXISTS warehouse.fact_product_sales;
 
-CREATE TABLE public.fact_product_sales (
-	product_sales_id serial,
-	product_sk int4 NULL,
+CREATE TABLE warehouse.fact_product_sales (
+	product_sales_sk serial,
+	order_legacy_id varchar NUlL,
+	order_item_id int4 NULL,
 	order_date int4 NULL,
-	avg_shipping_cost float8 NULL,
-	min_shipping_cost float8 NULL,
-	max_shipping_cost float8 NULL,
-	avg_price float8 NULL,
-	min_price float8 NULL,
-	max_price float8 NULL,
-	total_order int4 NULL,
-	CONSTRAINT fact_product_sales_pkey PRIMARY KEY (product_sales_id)
+	product_sk int4 NULL,
+	price float8 NULL,
+	shipping_cost float8 NULL,
+	CONSTRAINT fact_product_sales_pkey PRIMARY KEY (product_sales_sk)
 );
 
 -- public.fct_penjualan_produk foreign keys
-ALTER TABLE public.fact_product_sales
+ALTER TABLE warehouse.fact_product_sales
 	ADD CONSTRAINT fact_product_sales_product_sk_fkey
-		FOREIGN KEY (product_sk) REFERENCES public.product_dim(product_sk);
+		FOREIGN KEY (product_sk) REFERENCES warehouse.product_dim(product_sk);
 
-ALTER TABLE public.fact_product_sales
+ALTER TABLE warehouse.fact_product_sales
 	ADD CONSTRAINT fact_product_sales_order_date_fkey
-		FOREIGN KEY (order_date) REFERENCES public.date_dim(date_id);
+		FOREIGN KEY (order_date) REFERENCES warehouse.date_dim(date_id);

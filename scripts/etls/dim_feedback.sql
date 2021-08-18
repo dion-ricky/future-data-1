@@ -1,7 +1,6 @@
 INSERT INTO warehouse.feedback_dim (
-    feedback_key,
-    order_key,
-    feedback_score,
+    feedback_legacy_id,
+    order_legacy_id,
     feedback_form_sent_date,
     feedback_answer_date,
     scd_start,
@@ -10,9 +9,8 @@ INSERT INTO warehouse.feedback_dim (
 )
 
 SELECT 
-	feedback_id AS feedback_key,
-    order_id AS order_key,
-    feedback_score,
+	feedback_id AS feedback_legacy_id,
+    order_id AS order_legacy_id,
     feedback_form_sent_date,
     feedback_answer_date,
     feedback_answer_date AS scd_start,
