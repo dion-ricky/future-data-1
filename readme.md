@@ -8,9 +8,8 @@
 6. Run `setup.sh`
 
 ## Deliverables
-1. Transactional Database Backup (.tar)
-    - Refer to https://github.com/dion-ricky/future-data/issues/5#issuecomment-805851266
-    - [Download link](https://storage.googleapis.com/dionricky-static/ecommerce.tar)
+1. Database Backup (.tar)
+    - [Download link](https://storage.googleapis.com/dionricky-static/database-latest.tar)
 
 ## Progress Tracker
 Progress akan dibuat dalam bentuk *summary* setiap 2 minggu sekali, yaitu pada 2 minggu pertama dan 2 minggu terakhir setiap bulan.
