@@ -72,8 +72,8 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 ### 1-15 Juli 2021
 - [x] Prepare Jupyter environment
 - [x] Created setup.sh for easier environment installation
-- [ ] Reinstall all env on remote because of connectivity problem
-- [ ] Reinstall all env on local as a backup
+- [x] Reinstall all env on remote because of connectivity problem
+- [x] Reinstall all env on local as a backup
 
 ### 16-31 Juli 2021
 - [x] K-Means clustering for MLv1
@@ -86,6 +86,6 @@ Goals yang sudah tercapai akan terlihat sebagai checklist yang dicentang. Goals 
 ### 16-31 Agustus 2021
 - [x] Hyperparameter tuning for unsupervised model
 - [x] Hyperparameter tuning for supervised model
-- [ ] Prepare powerpoint
-- [ ] Write blog post
-- [ ] Finalize project deliverables
+- [x] Prepare powerpoint
+- [x] Write blog post
+- [x] Finalize project deliverables
