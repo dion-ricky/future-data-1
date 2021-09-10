@@ -1,11 +1,20 @@
 # Future Data Track
 
 ## Installation
+If PostgreSQL will be installed in Docker:
 1. Clone this repository
 2. cd into `future-data-1`
-3. Make sure PostgresDB is installed, if not yet run `setup_db.sh`. Make sure Docker is installed.
-4. Update Airflow config on `airflow.conn.cfg` and `airflow.var.cfg`
-6. Run `setup.sh`
+3. Make sure Docker is installed.
+4. Make sure PostgreSQL is installed on Docker, if not yet run `setup_db.sh`.
+6. Run `restore_db.sh`.
+7. Update Airflow config on `airflow.conn.cfg` and `airflow.var.cfg`.
+8. Run `setup.sh`.
+
+If PostgreSQL is already installed:
+1. Clone this repository
+2. cd into `future-data-1`
+3. Run `download_restore_db.sh`
+4. Restore `schema.sql` and `database.tar` to PostgreSQL
 
 ## Deliverables
 1. Database Backup (.tar)
