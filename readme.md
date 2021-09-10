@@ -18,8 +18,10 @@ B. If PostgreSQL is already installed:
 5. Run all step from __A.6__
 
 ## Deliverables
-1. Database Backup (.tar)
-    - [Download link](https://storage.googleapis.com/dionricky-static/database-latest.tar)
+1. Database Schema (.sql)
+    - [Download link](https://storage.googleapis.com/dionricky-static/schema-latest.sql)
+2. Database Backup (.tar)
+    - [Download link](https://storage.googleapis.com/dionricky-static/database-latest.tar) 
 
 ## Progress Tracker
 Progress akan dibuat dalam bentuk *summary* setiap 2 minggu sekali, yaitu pada 2 minggu pertama dan 2 minggu terakhir setiap bulan.
