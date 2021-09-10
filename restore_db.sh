@@ -1,13 +1,14 @@
 #! /bin/bash
 
-wget https://storage.googleapis.com/dionricky-static/schema-latest.sql -O schema.sql
-wget https://storage.googleapis.com/dionricky-static/database-latest.tar -O database.tar
+sh ./download_backup.sh
 
-docker cp schema.sql postgres:/var/lib/postgresql/
-docker cp database.tar postgres:/var/lib/postgresql/
-docker cp _exec_restore.sh postgres:/var/lib/postgresql/
+docker cp backup/schema.sql postgres:/var/lib/postgresql/
+docker cp backup/database.tar postgres:/var/lib/postgresql/
+docker cp scripts/_exec_restore.sh postgres:/var/lib/postgresql/
+docker cp scripts/_exec_backup_cleanup.sh postgres:/var/lib/postgresql/
 
 docker exec -ti postgres bash -c "su -c /var/lib/postgresql/_exec_restore.sh postgres"
+docker exec -ti postgres bash -c "su -c /var/lib/postgresql/_exec_backup_cleanup.sh root"
 
-rm ./database.tar
-rm ./schema.sql
+rm ./backup/database.tar
+rm ./backup/schema.sql
